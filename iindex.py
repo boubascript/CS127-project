@@ -21,4 +21,6 @@ def build_inverted_index(filename,keyindex,textindex):
 
 sample_index = build_inverted_index('sample-texts.csv',0,1)
 texas_index = build_inverted_index('offenders-clean.csv',0,8)
-build_inverted_index("sample-texts.csv",0,1)
+
+print(sample_index)
+print(texas_index)
