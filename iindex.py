@@ -32,7 +32,7 @@ def count_results(str, filename, keyindex, textindex):
     count = 0
     for x in range(len(search_dict(str, filename, keyindex, textindex))):
         count += 1
-    return {str, count}
+    return [str, count]
 
 def searchcount(str, filename, keyindex, textindex):
     count = 0
@@ -40,7 +40,7 @@ def searchcount(str, filename, keyindex, textindex):
         count += 1
     return [str, search_dict(str, filename, keyindex, textindex), count]
 
-##print(searchcount('sorry', '.CSVfiles/offenders-clean.csv', 0 , 8))
+##print(search_dict('sorry', '.CSVfiles/offenders-clean.csv', 0 , 8)) - test case
 ##print(searchcount('triple', './CSVfiles/awardsplayers.csv', 0, 1))
 ##print(searchcount('Pitching', './CSVfiles/awardsplayers.csv', 0, 1))
 ##print(searchcount('Buffalo', './CSVfiles/teamsfranchises.csv', 0, 1))
