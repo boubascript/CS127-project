@@ -12,13 +12,13 @@
 </head>
 <body>
   <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#"> </a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="#"></a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -43,9 +43,14 @@
     <div class="section">
 
        <form name = "indexsearch" class="center" action="" method="POST">
-          <div class = "row">
+          <div class = "row center">
                 <div class = "col s6">
-                    <input name="file" type="text" value="" placeholder = "offenders.csv">File Name</input>
+                    <select name = "file" class = "browser-default">
+                        <option value="offenders.csv">offenders.csv</option>
+                        <option value="awardsplayers.csv">awardsplayers.csv</option>
+                        <option value="teamsfranchises.csv">teamsfranchises.csv</option>
+                      </select>
+                      <p class = "center"> File: </p>
                 </div>
                 <div class = "col s6">
                      <input name="term" type="text" value="" placeholder = "sorry">Search Term</input>
@@ -55,7 +60,8 @@
                 <input type="submit" id="search" style="display: none;">
           </div>
       </form>
-
+      <div class = "row">
+        <h4> Use '(AND)' and '(OR)' to narrow or widen your searches. </h4>
       {% if error %}
       <div class = "section">
         <h2> {{ errorMessage }} </h2>
