@@ -34,12 +34,14 @@ def count_results(str, filename, keyindex, textindex):
         count += 1
     return {str, count}
 
-##print(search_dict('sorry', '.CSVfiles/offenders-clean.csv', 0 , 8)) - test case
-print(search_dict('triple', './CSVfiles/awardsplayers.csv', 0, 1))
-print(count_results('triple', './CSVfiles/awardsplayers.csv', 0, 1))
-print(search_dict('Pitching', './CSVfiles/awardsplayers.csv', 0, 1))
-print(count_results('Pitching', './CSVfiles/awardsplayers.csv', 0, 1))
-print(search_dict('Buffalo', './CSVfiles/teamsfranchises.csv', 0, 1))
-print(count_results('Buffalo', './CSVfiles/teamsfranchises.csv', 0, 1))
-print(search_dict('New', './CSVfiles/teamsfranchises.csv', 0, 1))
-print(count_results('New', './CSVfiles/teamsfranchises.csv', 0, 1))
+def searchcount(str, filename, keyindex, textindex):
+    count = 0
+    for x in range(len(search_dict(str, filename, keyindex, textindex))):
+        count += 1
+    return [str, search_dict(str, filename, keyindex, textindex), count]
+
+##print(searchcount('sorry', '.CSVfiles/offenders-clean.csv', 0 , 8))
+##print(searchcount('triple', './CSVfiles/awardsplayers.csv', 0, 1))
+##print(searchcount('Pitching', './CSVfiles/awardsplayers.csv', 0, 1))
+##print(searchcount('Buffalo', './CSVfiles/teamsfranchises.csv', 0, 1))
+##print(searchcount('New', './CSVfiles/teamsfranchises.csv', 0, 1))
