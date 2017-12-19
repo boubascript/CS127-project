@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Results</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('index') }}"> Back to Search</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">File Search</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Using an Inverted Index</h5>
+      </div>
+      <div class="row center">
+        <!--<input type = "submit" name = "submit" form = "indexsearch"  id="download-button" class="btn-large waves-effect waves-light orange"/>-->
+        <label for="search" role="button" class="btn-large waves-effect waves-light orange" tabindex="0"> Submit </label>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+<div class="container">
+    <div class="section">
+      <div class = "row center">
+
+          <ul class="collection">
+            {% for result in results %}
+              <li class = "collection-item">{{ result}}</li>
+            {% endfor %}
+          </ul>
+
+      </div>
+
+    </div>
+</div>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/init.js') }}"></script>
+
+  </body>
+</html>
