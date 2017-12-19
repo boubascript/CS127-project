@@ -39,6 +39,7 @@ def general_iindex(file):
 def search(term,file):
     return general_iindex(file)[term]
 
+
 def search_dict(str, filename, keyindex, textindex):
     dict = build_inverted_index(filename, keyindex, textindex)
     l = []
@@ -60,7 +61,7 @@ def searchcount(str, filename, keyindex, textindex):
         count += 1
     return [str, search_dict(str, filename, keyindex, textindex), count]
 
-#print(search("sorry",'offenders.csv'))
+#print(search("funny",'offenders.csv'))
 #new_iindex('example.csv',0,3)
 #print(search_dict('sorry', 'data/offenders-clean.csv', 0 , 8)) #- test case
 ##print(searchcount('triple', './CSVfiles/awardsplayers.csv', 0, 1))

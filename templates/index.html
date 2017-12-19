@@ -56,6 +56,12 @@
           </div>
       </form>
 
+      {% if error %}
+      <div class = "section">
+        <h2> {{ errorMessage }} </h2>
+      </div>
+      {% endif %}
+
     </div>
 </div>
 
