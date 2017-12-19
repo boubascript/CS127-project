@@ -28,8 +28,20 @@ def search_dict(str, filename, keyindex, textindex):
             l += dict[x]
     return l
 
-print(search_dict('sorry', 'offenders-clean.csv', 0 , 8))
-print(search_dict('triple', 'awardsplayers.csv', 0, 1))
-print(search_dict('Star', 'awardsplayers.csv', 0, 1))
-print(search_dict('baseball', 'awardsplayers.csv', 0, 1))
+def count_results(str, filename, keyindex, textindex):
+    count = 0
+    for x in range(len(search_dict(str, filename, keyindex, textindex))):
+        count += 1
+    return {str, count}
+    
+                       
 
+##print(search_dict('sorry', 'offenders-clean.csv', 0 , 8)) - test case
+print(search_dict('triple', 'awardsplayers.csv', 0, 1))
+print(count_results('triple', 'awardsplayers.csv', 0, 1))
+print(search_dict('Star', 'awardsplayers.csv', 0, 1))
+print(count_results('Star', 'awardsplayers.csv', 0, 1))
+print(search_dict('crown', 'awardsplayers.csv', 0, 1))
+print(count_results('crown', 'awardsplayers.csv', 0, 1))
+print(search_dict('Pitching', 'awardsplayers.csv', 0, 1))
+print(count_results('Pitching', 'awardsplayers.csv', 0, 1))
