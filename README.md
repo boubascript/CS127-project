@@ -11,7 +11,7 @@ Then to launch the app, run
 ```
 python3 app.py
 ``` 
-The site should be live at [127.0.0.1:5000](127.0.0.1:5000)
+The site should be live at [127.0.0.1:5000](http://127.0.0.1:5000)
 
 ## MVP 
 A flask web app which uses an inverted index, and allows users to submit simple AND/OR queries on data through a form. 
