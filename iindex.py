@@ -1,7 +1,7 @@
 import csv
 
 def build_inverted_index(filename,keyindex,textindex):
-    csv_reader =csv.reader(open(filename))
+    csv_reader = csv.reader(open(filename))
     d={}
     for line in csv_reader:
         document = line[keyindex]
@@ -15,12 +15,21 @@ def build_inverted_index(filename,keyindex,textindex):
                 cleantext = cleantext + " "
         wordlist = cleantext.split()
         for word in wordlist:
-            d.setdefault(word,[])
-            d[word].append(document)
+            d.setdefault(word.lower(),[])
+            d[word.lower()].append(document)
     return d
 
-sample_index = build_inverted_index('sample-texts.csv',0,1)
-texas_index = build_inverted_index('offenders-clean.csv',0,8)
+def search_dict(str, filename, keyindex, textindex):
+    dict = build_inverted_index(filename, keyindex, textindex)
+    l = []
+    str = str.lower()
+    for x in dict.keys():
+        if str in x:
+            l += dict[x]
+    return l
 
-print(sample_index)
-print(texas_index)
+print(search_dict('sorry', 'offenders-clean.csv', 0 , 8))
+print(search_dict('triple', 'awardsplayers.csv', 0, 1))
+print(search_dict('Star', 'awardsplayers.csv', 0, 1))
+print(search_dict('baseball', 'awardsplayers.csv', 0, 1))
+
