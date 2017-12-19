@@ -33,8 +33,6 @@ def count_results(str, filename, keyindex, textindex):
     for x in range(len(search_dict(str, filename, keyindex, textindex))):
         count += 1
     return {str, count}
-    
-                       
 
 ##print(search_dict('sorry', 'offenders-clean.csv', 0 , 8)) - test case
 print(search_dict('triple', 'awardsplayers.csv', 0, 1))
