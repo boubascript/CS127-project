@@ -1,7 +1,7 @@
 import csv
 
 def build_inverted_index(filename,keyindex,textindex):
-    csv_reader = csv.reader(open(filename))
+    csv_reader = csv.reader(open("data/" + filename))
     d={}
     for line in csv_reader:
         document = line[keyindex]
@@ -40,7 +40,9 @@ def searchcount(str, filename, keyindex, textindex):
         count += 1
     return [str, search_dict(str, filename, keyindex, textindex), count]
 
-##print(search_dict('sorry', '.CSVfiles/offenders-clean.csv', 0 , 8)) - test case
+
+#print(build_inverted_index('data/example.csv',0,3))
+#print(search_dict('sorry', 'data/offenders-clean.csv', 0 , 8)) #- test case
 ##print(searchcount('triple', './CSVfiles/awardsplayers.csv', 0, 1))
 ##print(searchcount('Pitching', './CSVfiles/awardsplayers.csv', 0, 1))
 ##print(searchcount('Buffalo', './CSVfiles/teamsfranchises.csv', 0, 1))
