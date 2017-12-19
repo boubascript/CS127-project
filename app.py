@@ -15,7 +15,7 @@ def index():
         headers = ii.getHeaders(filename)
         if "(AND)" in term:
             terms = term.split("(AND)")
-            results = ii.ANDsearch(terms[0].strip().lower,terms[1].strip().lower(),filename)
+            results = ii.ANDsearch(terms[0].strip().lower(),terms[1].strip().lower(),filename)
             term = terms[0].strip() + " AND " + terms[1].strip()
         elif "(OR)" in term:
             terms = term.split("(OR)")
@@ -28,9 +28,11 @@ def index():
         return render_template('results.html',file = filename, term = term, results = results, headers = headers, count = resultcount)
     except IOError:
         return render_template('index.html', error = True, errorMessage = "Sorry, could not find file '" + filename + "'.")
-    except KeyError:
+    except KeyError as k:
+        print(k)
         return render_template('index.html', error = True, errorMessage = "The search term '" + term + "' does not appear in this file.")
-    except TypeError:
+    except TypeError as t:
+        print(t)
         return render_template('index.html', error = True, errorMessage = "This search combination yields no results. Try broadening your search.")
 
 
