@@ -12,8 +12,9 @@ def index():
     filename = request.form['file']
     term = request.form['term']
     results = ii.search(term,filename)
+    resultcount = range(len(results))
     headers = ii.getHeaders(filename)
-    return render_template('results.html', file = filename, term = term, results = results, headers = headers)
+    return render_template('results.html', file = filename, term = term, results = results, headers = headers, count = resultcount)
 
 
 app.run(debug=True, host = '127.0.0.1', port = 5000)

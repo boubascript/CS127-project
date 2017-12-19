@@ -36,42 +36,24 @@
   </div>
 
 <div class="container">
-    <div class="section">
-      <div class = "row center">
-
-          <ul class="collection">
-            {% for result in results %}
-              <li class = "collection-item">{{ result}}</li>
-            {% endfor %}
-          </ul>
-
-      </div>
-
+    <div class="section center">
       <table class = "centered bordered highlight">
           <thead>
             <tr>
-                <th>Name</th>
-                <th>Item Name</th>
-                <th>Item Price</th>
+                {% for title in headers %}
+                <th> {{ title }} </th>
+                {% endfor %}
             </tr>
           </thead>
   
           <tbody>
+            {% for result in results %}
             <tr>
-              <td>Alvin</td>
-              <td>Eclair</td>
-              <td>$0.87</td>
+              {% for column in result %}
+              <td> {{ column }} </td>
+              {% endfor %}
             </tr>
-            <tr>
-              <td>Alan</td>
-              <td>Jellybean</td>
-              <td>$3.76</td>
-            </tr>
-            <tr>
-              <td>Jonathan</td>
-              <td>Lollipop</td>
-              <td>$7.00</td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
 
