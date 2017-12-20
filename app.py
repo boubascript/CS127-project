@@ -23,14 +23,14 @@ def index():
             term = terms[0].strip() + " OR " + terms[1].strip()
         else:
             results = ii.search(term.strip().lower(),filename)
-        
         resultcount = len(results)
+        if(resultcount == 0):
+            raise TypeError(term)
         return render_template('results.html',file = filename, term = term, results = results, headers = headers, count = resultcount)
     except IOError:
         return render_template('index.html', error = True, errorMessage = "Sorry, could not find file '" + filename + "'.")
-    except KeyError as k:
-        print(k)
-        return render_template('index.html', error = True, errorMessage = "The search term '" + term + "' does not appear in this file.")
+    except KeyError as key:
+        return render_template('index.html', error = True, errorMessage = "The search term '" + str(key).strip("'") + "' does not appear in this file.")
     except TypeError as t:
         print(t)
         return render_template('index.html', error = True, errorMessage = "This search combination yields no results. Try broadening your search.")
